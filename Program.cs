@@ -19,13 +19,11 @@ namespace ChooseYourScenario
             game.UserName = userInput;
             game.CatName = catName;
 
-            Console.WriteLine($"\nIt's late at night but {game.CatName} is not home yet.");
-            Console.WriteLine($"Let's \n 1. go outside to find {game.CatName}. \n 2. leave {game.CatName} favorite food in the backyard. \n(1 or 2)");
+            CatIsMissing();
             answer = Console.ReadLine();
             if (answer == "1")
             {
-                Console.WriteLine($"\nThe outside is really cold. It's hard to stay outside!");
-                Console.WriteLine($"{game.UserName} is going to\n 1. go back home and grab a jacket and scarf. \n 2. use a car so it's not a problem.  \n(1 or 2)");
+                HomeOrCar();
                 answer = Console.ReadLine();
                 if (answer == "1")
                 {
@@ -48,6 +46,16 @@ namespace ChooseYourScenario
                         UnderTheBed();
                     }
                 }
+                else if (answer == "2")
+                {
+                    Console.WriteLine("It's a little bit hard to find from the car. Let's get out of the car.");
+                    goto bushOrTree;
+                }
+                else
+                {
+                    EnterValidNumber();
+                    HomeOrCar();
+                }
             }
             else if (answer == "2")
             {
@@ -60,20 +68,45 @@ namespace ChooseYourScenario
                 EnterValidNumber();
             }
             bushOrTree: BushOrTree();
+            answer = Console.ReadLine();
+            if(answer == "1")
+            {
+                Console.WriteLine($"Ouch! Snake bit my arm! I need to give up look for {game.CatName} tonight.");
+                MissCat();
+            }
+            else if (answer =="2")
+            {
+                FindCat();
+            }
+            else
+            {
+                EnterValidNumber();
+                CatIsMissing();
+            }
         }
         public static void EnterValidNumber()
         {
             Console.WriteLine("Please answer with 1 or 2.");
         }
+        public static void CatIsMissing()
+        {
+            Console.WriteLine($"\nIt's late at night but {game.CatName} is not home yet.");
+            Console.WriteLine($"Let's \n 1. go outside to find {game.CatName}. \n 2. leave {game.CatName} favorite food in the backyard. \n(1 or 2)");
+        }
+        public static void HomeOrCar()
+        {
+            Console.WriteLine($"\nThe outside is really cold. It's hard to stay outside!");
+            Console.WriteLine($"{game.UserName} is going to\n 1. go back home and grab a jacket and scarf. \n 2. use a car so it's not a problem.  \n(1 or 2)");
+        }
         public static void UnderTheBed()
         {
             Console.WriteLine($"\n{game.UserName}: 'Where is my scarf? I thought I left it in my closet. \nWait, what is the thing underneath the bed?'");
-            Console.WriteLine($"\n 1. I found my scarf! \n 2. This is {game.CatName}'s favorite food!");
+            Console.WriteLine($"\n 1. I found my scarf! \n 2. This is {game.CatName}'s favorite food!\n(1 or 2)");
         }
         public static void BushOrTree()
         {
             Console.WriteLine($"\nHmmm, {game.CatName} might be in the bush or on the tree.");
-            Console.WriteLine("Let's check \n 1. in the bush. \n 2. on the tree.");
+            Console.WriteLine("Let's check \n 1. in the bush. \n 2. on the tree. \n(1 or 2)");
             answer = Console.ReadLine();
         }
 
