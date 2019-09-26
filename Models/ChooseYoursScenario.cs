@@ -14,12 +14,5 @@ namespace ChooseYourScenario.Models
             CatName = "";
             TotalAttempts = 0;
         }
-
-        public void Reset ()
-        {
-            UserName = "";
-            CatName = "";
-            TotalAttempts = 0;
-        }
     }
 }
