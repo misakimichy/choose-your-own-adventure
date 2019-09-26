@@ -19,7 +19,7 @@ Some "scenarios" can give users a clue on what input to enter next. Some respons
 
 1. Clone this repo:
 ```
-$ git clone https://github.com/misakimichy/grow-your-plant.git
+$ git clone https://github.com/misakimichy/choose-your-story.git
 ```
 
 2. Go into the repo and run this application:
