@@ -8,11 +8,9 @@ Build a mini text-based adventure game that uses branching. Each branch should r
 Some "scenarios" can give users a clue on what input to enter next. Some responses should end the game while others lead to a new "scenario".
 
 ## Application should have:
-- A custom `Game` class with a constructor that includes fields such as ``.
-
-- Determine how the game's difficulty will change how a user can play the game. For instance, a user playing with a higher difficulty might get fewer chances to type an incorrect input. Hint: To do this, it will be necessary to store total attempts in the constructor.
-
-- Allow users to pick up items that can affect the game later.
+- A custom `Game` class with a constructor that includes fields.
+- Use `goto` statement to escape from nested if statement.
+- Allow users to pick up stories.
 - Have separate methods for each scenario.
 
 ## Setup/Installation Requirements
